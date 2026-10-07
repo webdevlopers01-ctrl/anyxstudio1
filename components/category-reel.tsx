@@ -4,9 +4,7 @@ import Link from "next/link";
 import { ArrowLeft, ArrowRight, ArrowUpRight } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 
-type Service = [string, string];
-
-export function CategoryReel({ services }: { services: Service[] }) {
+export function CategoryReel({ services }: { services: string[][] }) {
   const railRef = useRef<HTMLDivElement>(null);
   const [active, setActive] = useState(0);
   const [paused, setPaused] = useState(false);
