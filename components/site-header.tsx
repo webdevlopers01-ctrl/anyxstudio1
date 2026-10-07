@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import { Menu, X, LogIn, Search, ShoppingBag, Heart, Zap } from "lucide-react";
+import { Menu, X, LogIn, Search, ShoppingBag, Heart } from "lucide-react";
 import { useState } from "react";
 
 const links = [
@@ -10,39 +10,21 @@ const links = [
 export function SiteHeader(){
   const [open,setOpen]=useState(false);
   return (
-    <header className="sticky top-0 z-50 border-b border-white/[.07] bg-[#050507]/80 backdrop-blur-2xl">
-      <div className="container h-[4.5rem] flex items-center justify-between">
-        <Link href="/" className="font-black tracking-[-.06em] text-lg">
-          <span className="text-violet-400">ANYX</span> STUDIO
-        </Link>
-
-        <nav className="hidden md:flex items-center gap-7 text-[13px] font-semibold text-zinc-400">
-          {links.map(([href,label])=><Link key={href} className="transition hover:text-white" href={href}>{label}</Link>)}
-        </nav>
-
-        <div className="flex items-center gap-1.5">
-          <Link aria-label="Search ANYX Studio" className="icon-button hidden sm:inline-flex" href="/shop"><Search size={17}/></Link>
-          <Link aria-label="Wishlist" className="icon-button hidden sm:inline-flex" href="/customer"><Heart size={17}/></Link>
-          <Link aria-label="Cart" className="icon-button hidden sm:inline-flex" href="/shop"><ShoppingBag size={17}/></Link>
-          <Link className="hidden lg:inline-flex btn btn-primary text-xs" href="/contact">
-            <Zap size={15}/> Start a Project
-          </Link>
-          <Link className="hidden sm:inline-flex btn btn-secondary text-xs" href="/login">
-            <LogIn size={15}/> Login
-          </Link>
-          <button aria-label={open ? "Close menu" : "Open menu"} className="md:hidden rounded-xl border border-white/10 bg-white/[.04] p-2.5 text-zinc-300" onClick={()=>setOpen(v=>!v)}>
-            {open ? <X size={19}/> : <Menu size={19}/>}
-          </button>
-        </div>
+    <header className="anyx-header sticky top-0 z-50">
+      <div className="container anyx-header-row">
+        <button aria-label={open ? "Close menu" : "Open menu"} className="anyx-menu" onClick={()=>setOpen(v=>!v)}>{open ? <X size={20}/> : <Menu size={20}/>}</button>
+        <Link aria-label="Search ANYX Studio" className="anyx-header-icon" href="/shop"><Search size={19}/></Link>
+        <Link href="/" className="anyx-logo"><span>ANY</span><i>X</i><b>STUDIO</b></Link>
+        <div className="anyx-header-actions"><Link aria-label="Wishlist" href="/customer"><Heart size={18}/></Link><Link aria-label="Cart" href="/shop"><ShoppingBag size={18}/></Link><Link aria-label="Login" className="hidden sm:block" href="/login"><LogIn size={18}/></Link></div>
       </div>
 
       {open && (
-        <div className="md:hidden border-t border-white/[.06] bg-[#07070a]/95 backdrop-blur-2xl">
+        <div className="anyx-menu-drawer">
           <nav className="container py-4 grid gap-1">
             {links.map(([href,label])=>(
-              <Link onClick={()=>setOpen(false)} key={href} href={href} className="rounded-xl px-3 py-3.5 text-sm font-semibold text-zinc-300 hover:bg-white/[.05] hover:text-white">{label}</Link>
+              <Link onClick={()=>setOpen(false)} key={href} href={href} className="anyx-menu-link">{label}</Link>
             ))}
-            <Link onClick={()=>setOpen(false)} href="/login" className="mt-2 btn btn-primary">Studio Login <LogIn size={15}/></Link>
+            <Link onClick={()=>setOpen(false)} href="/contact" className="anyx-menu-cta">Start a project</Link>
           </nav>
         </div>
       )}
