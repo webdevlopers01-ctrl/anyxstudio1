@@ -1,1 +1,26 @@
-import {LoginButton} from "@/components/login-button";export default function Login(){return <main className="min-h-[75vh] mesh flex items-center"><div className="container max-w-md"><div className="card p-8"><div className="text-xs uppercase tracking-[.25em] text-violet-400 font-bold">Private studio area</div><h1 className="text-4xl font-black mt-3">Studio Login</h1><div className="mt-4 mb-7 rounded-2xl border border-violet-400/20 bg-[#11111a]/95 px-4 py-3.5 shadow-[0_12px_35px_rgba(0,0,0,.28)] backdrop-blur-sm"><p className="text-sm leading-6 text-zinc-300">Artists and owner sign in with Google. Customers do not need accounts in V1.</p></div><LoginButton/></div></div></main>}
+import Link from "next/link";
+import { ShieldCheck } from "lucide-react";
+import { LoginButton } from "@/components/login-button";
+
+export default function Login() {
+  return <main className="anyx-login-shell">
+    <div className="anyx-login-grid" aria-hidden="true" />
+    <section className="anyx-login-intro">
+      <span>ANYX STUDIO / ACCESS</span>
+      <h1>MAKE<br />THE WORK<br /><em>MATTER.</em></h1>
+      <p>One secure place for studio owners and artists to manage projects, files and production progress.</p>
+      <div><b>GFX</b><b>VFX</b><b>MOTION</b></div>
+    </section>
+    <section className="anyx-login-panel">
+      <Link href="/" className="anyx-login-brand">ANY<span>X</span><b>STUDIO</b></Link>
+      <div className="anyx-login-card">
+        <span className="anyx-login-kicker">PRIVATE WORKSPACE</span>
+        <h2>Welcome back.</h2>
+        <p>Sign in to access your assigned work, production updates and studio tools.</p>
+        <LoginButton />
+        <small><ShieldCheck size={14} /> Secure Google sign-in. Your workspace opens based on your role.</small>
+      </div>
+      <Link href="/" className="anyx-login-exit">← Back to ANYX Studio</Link>
+    </section>
+  </main>;
+}
