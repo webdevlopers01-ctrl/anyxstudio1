@@ -1,10 +1,10 @@
 "use client";
 import Link from "next/link";
-import { Menu, X, LogIn } from "lucide-react";
+import { Menu, X, LogIn, Search, ShoppingBag, Heart, Zap } from "lucide-react";
 import { useState } from "react";
 
 const links = [
-  ["/about","About"],["/services","Services"],["/portfolio","Portfolio"],["/shop","Shop"],["/contact","Contact"]
+  ["/services","Services"],["/portfolio","Work"],["/shop","Shop"],["/about","About"],["/contact","Contact"]
 ];
 
 export function SiteHeader(){
@@ -13,16 +13,22 @@ export function SiteHeader(){
     <header className="sticky top-0 z-50 border-b border-white/[.07] bg-[#050507]/80 backdrop-blur-2xl">
       <div className="container h-[4.5rem] flex items-center justify-between">
         <Link href="/" className="font-black tracking-[-.06em] text-lg">
-          CLIENT<span className="text-violet-400">.</span>STUDIO
+          <span className="text-violet-400">ANYX</span> STUDIO
         </Link>
 
         <nav className="hidden md:flex items-center gap-7 text-[13px] font-semibold text-zinc-400">
           {links.map(([href,label])=><Link key={href} className="transition hover:text-white" href={href}>{label}</Link>)}
         </nav>
 
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-1.5">
+          <Link aria-label="Search ANYX Studio" className="icon-button hidden sm:inline-flex" href="/shop"><Search size={17}/></Link>
+          <Link aria-label="Wishlist" className="icon-button hidden sm:inline-flex" href="/customer"><Heart size={17}/></Link>
+          <Link aria-label="Cart" className="icon-button hidden sm:inline-flex" href="/shop"><ShoppingBag size={17}/></Link>
+          <Link className="hidden lg:inline-flex btn btn-primary text-xs" href="/contact">
+            <Zap size={15}/> Start a Project
+          </Link>
           <Link className="hidden sm:inline-flex btn btn-secondary text-xs" href="/login">
-            <LogIn size={15}/> Studio Login
+            <LogIn size={15}/> Login
           </Link>
           <button aria-label={open ? "Close menu" : "Open menu"} className="md:hidden rounded-xl border border-white/10 bg-white/[.04] p-2.5 text-zinc-300" onClick={()=>setOpen(v=>!v)}>
             {open ? <X size={19}/> : <Menu size={19}/>}
