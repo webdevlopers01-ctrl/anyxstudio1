@@ -11,7 +11,7 @@ export async function POST(request: Request) {
   const email = String(body.email || "").trim().toLowerCase();
   const role = String(body.role || "artist");
   if (!actor || !["owner", "admin"].includes(actor.role)) return NextResponse.json({ error: "Only owner or admin can invite members" }, { status: 403 });
-  if (!["admin", "artist", "customer"].includes(role) || (actor.role === "admin" && role === "admin")) return NextResponse.json({ error: "This role cannot be invited by your account" }, { status: 403 });
+  if (!["admin", "artist", "customer"].includes(role) || (actor.role === "admin" && role !== "artist")) return NextResponse.json({ error: "Admins can invite artists only" }, { status: 403 });
   if (!email || !email.includes("@")) return NextResponse.json({ error: "Valid email is required" }, { status: 400 });
   const serviceKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
   if (!serviceKey) return NextResponse.json({ error: "Server invite key is not configured" }, { status: 503 });
