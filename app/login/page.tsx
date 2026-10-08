@@ -12,7 +12,7 @@ export default function Login() {
       <div><b>GFX</b><b>VFX</b><b>MOTION</b></div>
     </section>
     <section className="anyx-login-panel">
-      <Link href="/" className="anyx-login-brand">ANY<span>X</span><b>STUDIO</b></Link>
+      <Link href="/" className="anyx-login-brand"><img src="/anyx-studio-logo.png" alt="ANYX Studio" /></Link>
       <div className="anyx-login-card">
         <span className="anyx-login-kicker">PRIVATE WORKSPACE</span>
         <h2>Welcome back.</h2>
