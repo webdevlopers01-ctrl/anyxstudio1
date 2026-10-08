@@ -1,0 +1,3 @@
+-- Live migration mirror: anyx_harden_client_rpcs.
+-- The complete SQL is kept in 202610090001_harden_client_rpcs.sql for local readability.
+-- This marker preserves the live migration name in the repository history.

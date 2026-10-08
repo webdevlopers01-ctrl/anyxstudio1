@@ -9,6 +9,8 @@
 - Admin: manages artists, assigns work and can launch products and packages
 - Artist: sees only assigned sanitized briefs and updates progress
 - Customer: default role for normal users, with customer workspace access
+- Customer dashboard is backed by Supabase orders, wishlists and project requests
+- Admin/Owner can publish either a single product or a package with item lines
 - Supabase PostgreSQL + Storage + RLS
 - Client contact data is not exposed to artist queries
 
@@ -25,6 +27,8 @@ update public.profiles p
 set role='owner'
 from auth.users u
 where p.id=u.id and u.email='OWNER_GOOGLE_EMAIL';
+
+The live `client-studio` project also has the migrations `anyx_harden_client_rpcs` and `anyx_index_customer_foreign_keys`. Their repository mirrors are kept under `supabase/migrations/` so future schema deploys do not lose the live hardening changes.
 
 This is deliberately manual so arbitrary Google users cannot self-promote.
 
