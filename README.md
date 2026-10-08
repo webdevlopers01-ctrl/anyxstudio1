@@ -4,9 +4,11 @@
 - Public studio website: home, about, services, portfolio, contact
 - Digital asset shop and product detail pages
 - WhatsApp-first purchase flow; no payment gateway
-- Google OAuth staff login
-- Admin: private clients, project creation, artist assignment, product publishing
-- Artist: assigned sanitized briefs and status workflow
+- Google OAuth login with four roles: Owner, Admin, Artist and Customer
+- Owner: manages admins/artists and can launch products and packages
+- Admin: manages artists, assigns work and can launch products and packages
+- Artist: sees only assigned sanitized briefs and updates progress
+- Customer: default role for normal users, with customer workspace access
 - Supabase PostgreSQL + Storage + RLS
 - Client contact data is not exposed to artist queries
 
@@ -17,7 +19,7 @@ Copy .env.example to .env.local. Use only the Supabase publishable key in browse
 Enable Google in Supabase Authentication > Providers. Create a Google OAuth Web application and use the callback URL shown by Supabase. Add the app origin and /auth/callback to the Supabase Auth redirect allow-list.
 
 ## First owner
-New Google users are created as artists by default. After the owner's first login, apply the owner-team migration and promote the intended owner once in Supabase SQL Editor:
+New Google users are created as customers by default. After the owner's first login, apply the role migrations and promote the intended owner once in Supabase SQL Editor:
 
 update public.profiles p
 set role='owner'
