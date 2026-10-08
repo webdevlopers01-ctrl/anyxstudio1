@@ -16,11 +16,11 @@ Copy .env.example to .env.local. Use only the Supabase publishable key in browse
 ## Google OAuth
 Enable Google in Supabase Authentication > Providers. Create a Google OAuth Web application and use the callback URL shown by Supabase. Add the app origin and /auth/callback to the Supabase Auth redirect allow-list.
 
-## First admin
-New Google users are created as artist by default. After the owner's first login, promote the intended owner once in Supabase SQL Editor:
+## First owner
+New Google users are created as artists by default. After the owner's first login, apply the owner-team migration and promote the intended owner once in Supabase SQL Editor:
 
 update public.profiles p
-set role='admin'
+set role='owner'
 from auth.users u
 where p.id=u.id and u.email='OWNER_GOOGLE_EMAIL';
 
