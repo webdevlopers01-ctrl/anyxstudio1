@@ -8,7 +8,7 @@ export default function Login() {
     <section className="anyx-login-intro">
       <span>ANYX STUDIO / ACCESS</span>
       <h1>MAKE<br />THE WORK<br /><em>MATTER.</em></h1>
-      <p>One secure place for studio owners and artists to manage projects, files and production progress.</p>
+      <p>One secure place for customers, studio owners, admins and creative workers.</p>
       <div><b>GFX</b><b>VFX</b><b>MOTION</b></div>
     </section>
     <section className="anyx-login-panel">
@@ -16,7 +16,7 @@ export default function Login() {
       <div className="anyx-login-card">
         <span className="anyx-login-kicker">PRIVATE WORKSPACE</span>
         <h2>Welcome back.</h2>
-        <p>Sign in to access your assigned work, production updates and studio tools.</p>
+        <p>Sign in to view your orders, projects, downloads and role-based studio tools.</p>
         <LoginButton />
         <small><ShieldCheck size={14} /> Secure Google sign-in. Your workspace opens based on your role.</small>
       </div>

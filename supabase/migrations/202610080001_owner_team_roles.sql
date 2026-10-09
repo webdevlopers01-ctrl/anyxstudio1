@@ -1,10 +1,26 @@
 -- Owner-managed team hierarchy for ANYX Studio.
--- Existing staff remain artists until the owner promotes them.
+-- New Google sign-ins start as customers. "artist" is the internal creative-worker role.
 
 alter table public.profiles drop constraint if exists profiles_role_check;
-alter table public.profiles alter column role set default 'artist';
+alter table public.profiles alter column role set default 'customer';
 alter table public.profiles add constraint profiles_role_check
-  check (role in ('owner', 'admin', 'artist'));
+  check (role in ('owner', 'admin', 'artist', 'customer'));
+
+-- The standard Supabase signup trigger calls this function. New Google accounts
+-- always enter as customers; the owner changes internal-team roles from the UI.
+create or replace function public.handle_new_user()
+returns trigger
+language plpgsql
+security definer
+set search_path = public
+as $$
+begin
+  insert into public.profiles (id, full_name, role)
+  values (new.id, coalesce(new.raw_user_meta_data ->> 'full_name', new.email), 'customer')
+  on conflict (id) do nothing;
+  return new;
+end;
+$$;
 
 create or replace function public.is_anyx_owner()
 returns boolean
@@ -33,7 +49,7 @@ begin
   return query
     select p.id, coalesce(p.full_name, 'Team member'), p.role
     from public.profiles p
-    order by case p.role when 'owner' then 0 when 'admin' then 1 else 2 end, p.full_name nulls last;
+    order by case p.role when 'owner' then 0 when 'admin' then 1 when 'artist' then 2 else 3 end, p.full_name nulls last;
 end;
 $$;
 
@@ -47,8 +63,8 @@ begin
   if not public.is_anyx_owner() then
     raise exception 'Only the owner can manage team roles';
   end if;
-  if next_role not in ('admin', 'artist') then
-    raise exception 'Only admin and artist roles can be assigned here';
+  if next_role not in ('admin', 'artist', 'customer') then
+    raise exception 'Only admin, artist and customer roles can be assigned here';
   end if;
   if target_user_id = auth.uid() then
     raise exception 'Owner role cannot be changed here';
