@@ -282,3 +282,11 @@ footer{background:#211a35!important;color:#fff!important;border:0!important}foot
 .anyx-home .anyx-category-block,.anyx-home .anyx-work-section,.anyx-home .anyx-games{background:transparent!important;color:var(--ink)!important}
 .anyx-home .anyx-shop-promo{background:linear-gradient(135deg,rgba(243,239,255,.96),rgba(255,255,255,.92))!important}
 @media(max-width:700px){.anyx-home{background-size:48px 48px!important}}
+
+/* Header hierarchy: make the studio mark and account entry point unmistakable. */
+.anyx-header{height:102px!important}.anyx-header .anyx-header-row{height:102px!important}
+.anyx-header .anyx-logo span{font-size:clamp(2.5rem,4vw,3.35rem)!important;line-height:1!important}.anyx-header .anyx-logo b{font-size:10px!important;letter-spacing:.26em!important;margin-left:9px!important}
+.anyx-header .anyx-menu,.anyx-header .anyx-header-actions a,.anyx-header .anyx-header-icon{width:44px!important;height:44px!important;border-radius:14px!important}
+.anyx-header .anyx-menu svg,.anyx-header .anyx-header-actions a svg,.anyx-header .anyx-header-icon svg{width:20px!important;height:20px!important;stroke-width:2.35!important}
+.anyx-header .anyx-header-actions{gap:8px!important}.anyx-header .anyx-header-actions a:last-child{background:var(--lavender)!important;border-color:var(--lavender)!important;color:#fff!important;box-shadow:0 8px 18px rgba(110,76,182,.22)!important}.anyx-header .anyx-header-actions a:last-child svg{stroke:#fff!important}
+@media(max-width:700px){.anyx-header{height:80px!important}.anyx-header .anyx-header-row{height:80px!important}.anyx-header .anyx-logo span{font-size:2.15rem!important}.anyx-header .anyx-logo b{font-size:8px!important;margin-left:6px!important}.anyx-header .anyx-menu,.anyx-header .anyx-header-actions a,.anyx-header .anyx-header-icon{width:38px!important;height:38px!important}.anyx-header .anyx-header-actions{gap:5px!important}}
