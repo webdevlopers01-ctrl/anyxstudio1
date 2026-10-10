@@ -305,3 +305,8 @@ footer{background:#211a35!important;color:#fff!important;border:0!important}foot
 @media(max-width:700px){.anyx-main-promo:after{background:linear-gradient(180deg,rgba(255,255,255,.91) 0%,rgba(255,255,255,.69) 47%,rgba(255,255,255,.12) 100%)!important}.anyx-main-promo .anyx-hero-video{inset:0!important;width:100%!important;height:100%!important;border-radius:0!important}.anyx-promo-text{padding:34px 24px 170px!important}}
 
 .anyx-main-promo .anyx-hero-video-label{color:#fff!important;text-shadow:0 3px 18px rgba(31,15,65,.7)!important}.anyx-main-promo .anyx-hero-video-label b{color:#fff!important;text-shadow:0 4px 24px rgba(108,72,188,.75)!important}.anyx-main-promo .anyx-hero-video-label span,.anyx-main-promo .anyx-hero-video-label i{color:#eadfff!important;text-shadow:0 2px 12px rgba(31,15,65,.62)!important}
+
+/* Remove the washed-out white veil; keep only a light dark fade under the copy. */
+.anyx-main-promo:after{background:linear-gradient(90deg,rgba(12,7,25,.58) 0%,rgba(12,7,25,.27) 39%,rgba(12,7,25,.05) 68%,transparent 100%)!important}
+.anyx-main-promo .anyx-promo-text{color:#fff!important;text-shadow:0 2px 16px rgba(9,4,20,.56)}.anyx-main-promo .anyx-promo-text>span{color:#e8dcff!important}.anyx-main-promo .anyx-promo-text h1{color:#fff!important}.anyx-main-promo .anyx-promo-text h1 em{color:#d0aeff!important}.anyx-main-promo .anyx-promo-text p{color:#f2eff8!important}.anyx-main-promo .anyx-outline-button{color:#fff!important;border-color:rgba(255,255,255,.62)!important;background:rgba(20,10,40,.2)!important}
+@media(max-width:700px){.anyx-main-promo:after{background:linear-gradient(180deg,rgba(12,7,25,.62) 0%,rgba(12,7,25,.23) 55%,transparent 100%)!important}}
