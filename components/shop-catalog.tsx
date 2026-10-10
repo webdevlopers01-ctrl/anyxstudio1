@@ -3,13 +3,16 @@
 import Link from "next/link";
 import { ArrowRight, Heart, Search, ShoppingBag, SlidersHorizontal, Star, X } from "lucide-react";
 import { useEffect, useMemo, useState } from "react";
+import { useSearchParams } from "next/navigation";
 import { games, shopCategories } from "@/lib/data";
 
 type Product = { id: string; name: string; description: string | null; category: string; price: number | string; product_type?: "product" | "package" };
 
 export function ShopCatalog({ products }: { products: Product[] }) {
+  const searchParams = useSearchParams();
   const [query, setQuery] = useState(""); const [category, setCategory] = useState("All"); const [game, setGame] = useState("All games"); const [sort, setSort] = useState("newest");
   const [saved, setSaved] = useState<string[]>([]); const [cart, setCart] = useState<string[]>([]); const [cartOpen,setCartOpen]=useState(false); const [wishlistReady,setWishlistReady]=useState(false);
+  useEffect(() => { if (searchParams.get("cart") === "open") setCartOpen(true); }, [searchParams]);
   useEffect(() => { (async () => { const client = (await import("@/lib/supabase/client")).createClient(); const { data: { user } } = await client.auth.getUser(); if (!user) { setWishlistReady(true); return; } const { data } = await client.from("wishlists").select("product_id").eq("customer_id", user.id); setSaved((data || []).map(item => item.product_id)); setWishlistReady(true); })(); }, []);
   const filtered = useMemo(() => products.filter(p => (category === "All" || p.category.toLowerCase().includes(category.toLowerCase())) && `${p.name} ${p.description || ""}`.toLowerCase().includes(query.toLowerCase())).sort((a,b) => sort === "low" ? Number(a.price)-Number(b.price) : sort === "high" ? Number(b.price)-Number(a.price) : 0), [products, category, query, sort]);
   const toggle = (id:string, list:string[], update:(items:string[])=>void) => update(list.includes(id) ? list.filter(x=>x!==id) : [...list,id]);

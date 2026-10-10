@@ -15,7 +15,7 @@ export function SiteHeader(){
         <button aria-label={open ? "Close menu" : "Open menu"} className="anyx-menu" onClick={()=>setOpen(v=>!v)}>{open ? <X size={20}/> : <Menu size={20}/>}</button>
         <Link aria-label="Search ANYX Studio" className="anyx-header-icon" href="/shop"><Search size={19}/></Link>
         <Link href="/" className="anyx-logo"><span>ANYX</span><b>STUDIO</b></Link>
-        <div className="anyx-header-actions"><Link aria-label="Wishlist" href="/customer"><Heart size={18}/></Link><Link aria-label="Cart" href="/shop"><ShoppingBag size={18}/></Link><Link aria-label="Login" className="hidden sm:block" href="/login"><LogIn size={18}/></Link></div>
+        <div className="anyx-header-actions"><Link aria-label="Wishlist" href="/customer"><Heart size={18}/></Link><Link aria-label="Open cart" href="/shop?cart=open"><ShoppingBag size={18}/></Link><Link aria-label="Login" className="hidden sm:block" href="/login"><LogIn size={18}/></Link></div>
       </div>
 
       {open && (
