@@ -419,3 +419,5 @@ body{overflow-x:hidden}
   .anyx-showcase-row.row-1 .anyx-showcase-track{animation-name:anyx-gallery-right !important;animation-duration:39s !important}
   .anyx-showcase-row.row-2 .anyx-showcase-track{animation-name:anyx-gallery-left !important;animation-duration:36s !important}
 }
+
+.anyx-shop-loading{display:grid;min-height:70vh;place-content:center;justify-items:center;gap:13px;background:#fff;color:#211d29;text-align:center}.anyx-shop-loading span{color:#8762bd;font-size:11px;font-weight:900;letter-spacing:.16em}.anyx-shop-loading b{font-family:"Moanslight",sans-serif;font-size:clamp(2rem,4vw,4rem);letter-spacing:.01em}.anyx-shop-loading i{width:52px;height:4px;border-radius:999px;background:linear-gradient(90deg,#ddceff,#8762bd,#ddceff);background-size:200% 100%;animation:anyx-loading-line 1.15s linear infinite}@keyframes anyx-loading-line{to{background-position:200% 0}}

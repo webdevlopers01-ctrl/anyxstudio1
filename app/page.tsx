@@ -26,7 +26,7 @@ export default function Home() {
 
     <section className="anyx-showcase" aria-label="Recent ANYX work"><div className="anyx-showcase-head"><span>RECENT WORK</span><h2>Built to stop<br/><em>the scroll.</em></h2><p>GFX, VFX, posters and motion work from the ANYX creative floor.</p></div><div className="anyx-showcase-rows">{rows.map((row,rowIndex)=><div key={rowIndex} className={`anyx-showcase-row row-${rowIndex}`}><div className="anyx-showcase-track">{[...row,...row].map(([game,title,type],index)=><Link href="/portfolio" className={`anyx-showcase-card card-${(index+rowIndex)%6}`} key={`${rowIndex}-${index}`}><span>{type}</span><strong>{title}</strong><small>{game} · ANYX Studio</small><i/></Link>)}</div></div>)}</div></section>
 
-    <section className="anyx-showcase-actions" data-scrollfx><p data-scrollfx-child>Want instant packs or a custom creative direction?</p><div data-scrollfx-child><Link href="/shop" className="anyx-ref-primary">Visit store <ArrowUpRight size={17}/></Link><Link href="/contact" className="anyx-showcase-order">Customized work order <ArrowRight size={17}/></Link></div></section>
+    <section className="anyx-showcase-actions" data-scrollfx><p data-scrollfx-child>Want instant packs or a custom creative direction?</p><div data-scrollfx-child><Link href="/shop" prefetch className="anyx-ref-primary">Visit store <ArrowUpRight size={17}/></Link><Link href="/contact" prefetch className="anyx-showcase-order">Customized work order <ArrowRight size={17}/></Link></div></section>
 
     <section className="anyx-ref-games"><span>BUILT FOR</span>{games.map(game=><b key={game}>{game}</b>)}</section>
   </main>;
