@@ -452,7 +452,13 @@ footer{background:var(--anyx-blue)!important;color:#fff!important;border:0!impor
 /* Mobile performance budget: keep one subtle portfolio motion and stop two
    duplicate rails from keeping the phone GPU busy while the visitor scrolls. */
 @media(max-width:720px){
-  .anyx-showcase-track{animation-duration:58s!important;transform:translateZ(0)!important}
+  .anyx-showcase-row.row-0 .anyx-showcase-track{animation:anyx-gallery-left 46s linear infinite!important;will-change:transform}
   .anyx-showcase-row.row-1 .anyx-showcase-track,.anyx-showcase-row.row-2 .anyx-showcase-track{animation:none!important;transform:translateX(-9%)!important}
   .anyx-showcase-card{box-shadow:none!important}
+}
+
+/* Android can expose the OS reduced-motion preference. The portfolio motion is
+   deliberately retained there, while its workload stays limited to one rail. */
+@media(max-width:720px) and (prefers-reduced-motion:reduce){
+  .anyx-showcase-row.row-0 .anyx-showcase-track{animation:anyx-gallery-left 46s linear infinite!important}
 }
