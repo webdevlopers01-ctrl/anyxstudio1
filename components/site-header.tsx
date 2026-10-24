@@ -1,33 +1,23 @@
 "use client";
 import Link from "next/link";
-import { Menu, X, LogIn, Search, ShoppingBag, Heart } from "lucide-react";
-import { useState } from "react";
+import { BriefcaseBusiness, Home, Images, MessageCircle, ShoppingBag, Sparkles } from "lucide-react";
+import { usePathname } from "next/navigation";
+import { whatsapp } from "@/lib/utils";
 
-const links = [
-  ["/services","Services"],["/portfolio","Work"],["/shop","Shop"],["/about","About"],["/contact","Contact"]
-];
+const navigation = [
+  ["/", "Home", Home],
+  ["/services", "Services", Sparkles],
+  ["/portfolio", "Work", Images],
+  ["/shop", "Shop", ShoppingBag],
+  ["/about", "About", BriefcaseBusiness],
+] as const;
 
 export function SiteHeader(){
-  const [open,setOpen]=useState(false);
-  return (
-    <header className="anyx-header sticky top-0 z-50">
-      <div className="container anyx-header-row">
-        <button aria-label={open ? "Close menu" : "Open menu"} className="anyx-menu" onClick={()=>setOpen(v=>!v)}>{open ? <X size={20}/> : <Menu size={20}/>}</button>
-        <Link aria-label="Search ANYX Studio" className="anyx-header-icon" href="/shop"><Search size={19}/></Link>
-        <Link href="/" className="anyx-logo"><span>ANYX</span><b>STUDIO</b></Link>
-        <div className="anyx-header-actions"><Link aria-label="Wishlist" href="/customer"><Heart size={18}/></Link><Link aria-label="Open cart" href="/shop?cart=open"><ShoppingBag size={18}/></Link><Link aria-label="Login" className="hidden sm:block" href="/login"><LogIn size={18}/></Link></div>
-      </div>
-
-      {open && (
-        <div className="anyx-menu-drawer">
-          <nav className="container py-4 grid gap-1">
-            {links.map(([href,label])=>(
-              <Link onClick={()=>setOpen(false)} key={href} href={href} className="anyx-menu-link">{label}</Link>
-            ))}
-            <Link onClick={()=>setOpen(false)} href="/contact" className="anyx-menu-cta">Start a project</Link>
-          </nav>
-        </div>
-      )}
-    </header>
-  );
+  const pathname = usePathname();
+  const number = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER;
+  const supportHref = number ? whatsapp("Hello ANYX Studio, I need support.") : "/contact";
+  return <nav className="anyx-bottom-dock" aria-label="ANYX primary navigation">
+    <div className="anyx-dock-links">{navigation.map(([href,label,Icon]) => <Link key={href} href={href} aria-label={label} title={label} className={pathname === href ? "is-active" : ""}><Icon size={19}/><span>{label}</span></Link>)}</div>
+    <Link className="anyx-dock-support" href={supportHref} target={number ? "_blank" : undefined} rel={number ? "noreferrer" : undefined}><MessageCircle size={18}/><span>WhatsApp support</span></Link>
+  </nav>;
 }
