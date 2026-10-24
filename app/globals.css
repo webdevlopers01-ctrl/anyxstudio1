@@ -338,3 +338,12 @@ footer{background:#211a35!important;color:#fff!important;border:0!important}foot
     bottom:max(12px, env(safe-area-inset-bottom)) !important;
   }
 }
+
+/* Keep the mobile homepage smooth: the portfolio rails stay readable without
+   running three continuous GPU animations beneath the hero video. */
+@media (max-width:720px){
+  .anyx-showcase-track{animation:none !important;transform:none !important}
+  .anyx-showcase-row{overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none}
+  .anyx-showcase-row::-webkit-scrollbar{display:none}
+  .anyx-showcase-card{scroll-snap-align:start}
+}
