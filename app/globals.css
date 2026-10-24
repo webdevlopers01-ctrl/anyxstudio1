@@ -347,3 +347,26 @@ footer{background:#211a35!important;color:#fff!important;border:0!important}foot
   .anyx-showcase-row::-webkit-scrollbar{display:none}
   .anyx-showcase-card{scroll-snap-align:start}
 }
+
+/* Desktop readability pass — mobile keeps its compact touch-friendly scale. */
+@media (min-width:721px){
+  .btn{padding:13px 21px;font-size:1rem}
+  .anyx-ref-hero-copy p{max-width:590px;font-size:1.18rem}
+  .anyx-ref-kicker{padding:11px 17px;font-size:12px}
+  .anyx-ref-primary{gap:10px;padding:17px 27px;font-size:1.02rem}
+  .anyx-ref-text-link{font-size:1.02rem}
+  .anyx-showcase-head p{font-size:1.08rem}
+  .anyx-showcase-card span{font-size:11px}
+  .anyx-showcase-card small{font-size:12px}
+  .anyx-showcase-order{padding:16px 25px;font-size:1rem}
+  .anyx-ref-games{gap:26px}
+  .anyx-ref-games span{font-size:11px}
+  .anyx-ref-games b{font-size:14px}
+  .anyx-bottom-dock{width:min(900px,calc(100% - 64px));padding:7px}
+  .anyx-dock-links a{min-height:60px;font-size:12px}
+  .anyx-dock-support{min-width:225px;min-height:60px;font-size:13px}
+  .anyx-shop-title p{font-size:1.08rem}
+  .shop-collection-heading a,.anyx-shop-featured-head>a{font-size:.98rem}
+  .anyx-featured-drop span{font-size:11px}
+  .anyx-featured-drop small{font-size:.86rem}
+}
