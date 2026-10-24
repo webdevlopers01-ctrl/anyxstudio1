@@ -386,3 +386,12 @@ footer{background:#211a35!important;color:#fff!important;border:0!important}foot
   .anyx-dock-support{gap:10px;min-width:250px;min-height:64px;padding:0 24px;font-size:14px}
   .anyx-dock-support svg{width:21px;height:21px}
 }
+
+/* A wider editorial view for the moving work rails on desktop. */
+@media (min-width:721px){
+  .anyx-showcase-rows{gap:14px;padding:6px 0}
+  .anyx-showcase-track{gap:14px}
+  .anyx-showcase-card{width:clamp(220px,18vw,300px);height:clamp(145px,11.5vw,190px);padding:17px;border-radius:12px}
+  .anyx-showcase-card strong{margin-top:6px;font-size:clamp(1.35rem,1.8vw,1.9rem)}
+  .anyx-showcase-card i{top:18px;right:18px;width:31px;height:31px}
+}
