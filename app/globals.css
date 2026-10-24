@@ -449,16 +449,23 @@ footer{background:var(--anyx-blue)!important;color:#fff!important;border:0!impor
 .anyx-ref-hero-copy h1{margin-top:30px!important;color:#111318!important;font-family:Arial,Helvetica,sans-serif!important;font-size:clamp(3.65rem,7vw,7.15rem)!important;font-weight:950!important;line-height:.82!important;letter-spacing:-.075em!important}.anyx-ref-hero-copy h1 span{display:block;margin-top:.14em;font-size:.32em;font-weight:800;letter-spacing:.29em;line-height:1;color:#111318}.anyx-ref-hero-copy .anyx-ref-hero-tagline{max-width:none;margin:27px auto 0!important;color:#42516a!important;font-family:Arial,Helvetica,sans-serif!important;font-size:clamp(1rem,1.35vw,1.23rem)!important;font-weight:650;line-height:1.35;letter-spacing:.005em}
 @media(max-width:760px){.anyx-ref-hero-copy h1{font-size:clamp(3.45rem,15vw,5.2rem)!important;letter-spacing:-.07em!important}.anyx-ref-hero-copy h1 span{margin-top:.18em;font-size:.3em;letter-spacing:.27em}.anyx-ref-hero-copy .anyx-ref-hero-tagline{margin-top:25px!important;font-size:1.02rem!important}}
 
-/* Mobile performance budget: keep one subtle portfolio motion and stop two
-   duplicate rails from keeping the phone GPU busy while the visitor scrolls. */
+/* Mobile portfolio: one authoritative, compositor-friendly rule set for every
+   rail. Keeping it together prevents older responsive overrides freezing rows. */
 @media(max-width:720px){
-  .anyx-showcase-row.row-0 .anyx-showcase-track{animation:anyx-gallery-left 46s linear infinite!important;will-change:transform}
-  .anyx-showcase-row.row-1 .anyx-showcase-track,.anyx-showcase-row.row-2 .anyx-showcase-track{animation:none!important;transform:translateX(-9%)!important}
+  .anyx-showcase-row{overflow:hidden!important;scroll-snap-type:none!important;contain:paint}
+  .anyx-showcase-row.row-0 .anyx-showcase-track{animation:anyx-mobile-gallery-left 46s linear infinite!important;will-change:transform}
+  .anyx-showcase-row.row-1 .anyx-showcase-track{animation:anyx-mobile-gallery-right 52s linear infinite!important;will-change:transform}
+  .anyx-showcase-row.row-2 .anyx-showcase-track{animation:anyx-mobile-gallery-left 49s linear infinite!important;will-change:transform}
+  .anyx-showcase-row:active .anyx-showcase-track{animation-play-state:running!important}
   .anyx-showcase-card{box-shadow:none!important}
 }
+@keyframes anyx-mobile-gallery-left{from{transform:translate3d(0,0,0)}to{transform:translate3d(-50%,0,0)}}
+@keyframes anyx-mobile-gallery-right{from{transform:translate3d(-50%,0,0)}to{transform:translate3d(0,0,0)}}
 
 /* Android can expose the OS reduced-motion preference. The portfolio motion is
    deliberately retained there, while its workload stays limited to one rail. */
 @media(max-width:720px) and (prefers-reduced-motion:reduce){
-  .anyx-showcase-row.row-0 .anyx-showcase-track{animation:anyx-gallery-left 46s linear infinite!important}
+  .anyx-showcase-row.row-0 .anyx-showcase-track{animation:anyx-mobile-gallery-left 46s linear infinite!important}
+  .anyx-showcase-row.row-1 .anyx-showcase-track{animation:anyx-mobile-gallery-right 52s linear infinite!important}
+  .anyx-showcase-row.row-2 .anyx-showcase-track{animation:anyx-mobile-gallery-left 49s linear infinite!important}
 }
