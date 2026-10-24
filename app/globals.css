@@ -342,7 +342,7 @@ footer{background:#211a35!important;color:#fff!important;border:0!important}foot
 /* Keep the mobile homepage smooth: the portfolio rails stay readable without
    running three continuous GPU animations beneath the hero video. */
 @media (max-width:720px){
-  .anyx-showcase-track{animation:none !important;transform:none !important}
+  .anyx-showcase-track{animation:none !important}
   .anyx-showcase-row{overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none}
   .anyx-showcase-row::-webkit-scrollbar{display:none}
   .anyx-showcase-card{scroll-snap-align:start}
@@ -402,7 +402,7 @@ html{scroll-behavior:smooth}
 body{overflow-x:hidden}
 @media (max-width:720px){
   .anyx-showcase-row{overflow:hidden;scroll-snap-type:none}
-  .anyx-showcase-track{animation:anyx-gallery-left 34s linear infinite !important;transform:translate3d(0,0,0) !important;will-change:transform}
+  .anyx-showcase-track{animation:anyx-gallery-left 34s linear infinite !important;will-change:transform}
   .anyx-showcase-row.row-1 .anyx-showcase-track{animation-name:anyx-gallery-right !important;animation-duration:39s !important}
   .anyx-showcase-row.row-2 .anyx-showcase-track{animation-name:anyx-gallery-left !important;animation-duration:36s !important}
   .anyx-showcase-row:active .anyx-showcase-track{animation-play-state:paused}
