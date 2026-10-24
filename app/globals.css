@@ -391,7 +391,8 @@ footer{background:#211a35!important;color:#fff!important;border:0!important}foot
 @media (min-width:721px){
   .anyx-showcase-rows{gap:14px;padding:6px 0}
   .anyx-showcase-track{gap:14px}
-  .anyx-showcase-card{width:clamp(300px,22vw,370px);height:clamp(175px,13.5vw,220px);padding:20px;border-radius:14px}
-  .anyx-showcase-card strong{margin-top:8px;font-size:clamp(1.6rem,2.2vw,2.25rem)}
-  .anyx-showcase-card i{top:22px;right:22px;width:36px;height:36px}
+  .anyx-showcase-card{width:clamp(420px,31vw,620px);height:clamp(240px,18vw,350px);padding:28px;border-radius:18px}
+  .anyx-showcase-card strong{margin-top:10px;font-size:clamp(2rem,3vw,3rem)}
+  .anyx-showcase-card small{font-size:13px}
+  .anyx-showcase-card i{top:27px;right:27px;width:43px;height:43px}
 }
