@@ -1,7 +1,6 @@
 import Link from "next/link";
 import { ArrowUpRight, ArrowRight, LogIn, Sparkles } from "lucide-react";
 import { games } from "@/lib/data";
-import { DeferredHeroVideo } from "@/components/deferred-hero-video";
 
 export default function Home() {
   const gallery = [
@@ -17,10 +16,6 @@ export default function Home() {
         <h1>Your game.<br/><em>Our creative.</em></h1>
         <p>ANYX Studio creates the visuals that make teams, creators and campaigns impossible to scroll past.</p>
         <div className="anyx-ref-hero-actions"><Link href="/contact" className="anyx-ref-primary">Start a project <ArrowUpRight size={17}/></Link><Link href="/login" className="anyx-ref-text-link"><LogIn size={16}/> Customer login</Link></div>
-      </div>
-      <div className="anyx-ref-reel" data-scrollfx-child>
-        <DeferredHeroVideo />
-        <div className="anyx-ref-reel-shade"/><div className="anyx-ref-reel-copy"><span>ANYX CREATIVE REEL</span><b>01</b><i>PLAY THE DIFFERENCE</i></div>
       </div>
       <nav className="anyx-ref-dock" aria-label="Quick navigation" data-scrollfx-child><Link href="/services">Services</Link><Link href="/portfolio">Work</Link><Link href="/shop">Shop</Link><Link href="/about">About</Link><Link href="/contact" className="dock-cta">Let&apos;s talk <ArrowUpRight size={15}/></Link></nav>
     </section>
