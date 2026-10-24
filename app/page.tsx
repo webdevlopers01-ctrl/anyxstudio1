@@ -13,8 +13,8 @@ export default function Home() {
       <div className="anyx-ref-availability" data-scrollfx-child><i/> Available for new drops <span>•</span> GFX · VFX · Motion</div>
       <div className="anyx-ref-hero-copy" data-scrollfx-child>
         <span className="anyx-ref-kicker"><Sparkles size={13}/> Built for the next match</span>
-        <h1>Your game.<br/><em>Our creative.</em></h1>
-        <p>ANYX Studio creates the visuals that make teams, creators and campaigns impossible to scroll past.</p>
+        <h1>ANYX Studio</h1>
+        <p className="anyx-ref-hero-tagline">Your game. Our creative.</p>
         <div className="anyx-ref-hero-actions"><Link href="/contact" className="anyx-ref-primary">Start a project <ArrowUpRight size={17}/></Link><Link href="/login" className="anyx-ref-text-link"><LogIn size={16}/> Customer login</Link></div>
       </div>
       <nav className="anyx-ref-dock" aria-label="Quick navigation" data-scrollfx-child><Link href="/services">Services</Link><Link href="/portfolio">Work</Link><Link href="/shop">Shop</Link><Link href="/about">About</Link><Link href="/contact" className="dock-cta">Let&apos;s talk <ArrowUpRight size={15}/></Link></nav>
