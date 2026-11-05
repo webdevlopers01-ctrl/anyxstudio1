@@ -471,5 +471,5 @@ footer{background:var(--anyx-blue)!important;color:#fff!important;border:0!impor
 }
 
 /* Global, pointer-free accent that travels with the visitor through every route. */
-.anyx-roaming-rocket{position:fixed!important;z-index:70!important;left:-64px;top:-64px;display:grid;place-items:center;width:42px;height:42px;pointer-events:none;font-size:28px;line-height:1;filter:drop-shadow(0 5px 8px rgba(1,75,170,.24));transition:left 1.75s cubic-bezier(.2,.8,.2,1),top 1.75s cubic-bezier(.2,.8,.2,1),transform 1.75s cubic-bezier(.2,.8,.2,1);will-change:left,top,transform}
-@media(max-width:720px){.anyx-roaming-rocket{z-index:55;width:36px;height:36px;font-size:24px;filter:drop-shadow(0 4px 7px rgba(1,75,170,.21))}}
+.anyx-roaming-rocket{position:fixed!important;z-index:70!important;left:-64px;top:-64px;display:grid;place-items:center;width:52px;height:52px;pointer-events:none;font-size:35px;line-height:1;filter:drop-shadow(0 6px 10px rgba(1,75,170,.26));transition:left 1.75s cubic-bezier(.2,.8,.2,1),top 1.75s cubic-bezier(.2,.8,.2,1),transform 1.75s cubic-bezier(.2,.8,.2,1);will-change:left,top,transform}
+@media(max-width:720px){.anyx-roaming-rocket{z-index:55;width:44px;height:44px;font-size:30px;filter:drop-shadow(0 5px 8px rgba(1,75,170,.23))}}
