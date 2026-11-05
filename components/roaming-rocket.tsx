@@ -17,7 +17,7 @@ export function RoamingRocket() {
     let currentY = Math.max(EDGE, window.innerHeight * 0.2);
     let lastMove = 0;
     let frame = 0;
-    let idleTimer: ReturnType<typeof window.setInterval> | undefined;
+    let idleTimer: number | undefined;
 
     const move = () => {
       const width = Math.max(42, window.innerWidth - 42 - EDGE * 2);
