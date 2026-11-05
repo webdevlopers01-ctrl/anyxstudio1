@@ -4,7 +4,9 @@ import { useEffect, useRef } from "react";
 
 const EDGE = 14;
 const MOVE_COOLDOWN_MS = 520;
-const IDLE_MOVE_MS = 6200;
+const IDLE_MOVE_MS = 2800;
+const SCROLL_TRAVEL = "1.75s";
+const IDLE_TRAVEL = "4.2s";
 
 export function RoamingRocket() {
   const rocketRef = useRef<HTMLSpanElement>(null);
@@ -19,7 +21,7 @@ export function RoamingRocket() {
     let frame = 0;
     let idleTimer: number | undefined;
 
-    const move = () => {
+    const move = (travelTime = SCROLL_TRAVEL) => {
       const width = Math.max(42, window.innerWidth - 42 - EDGE * 2);
       const height = Math.max(42, window.innerHeight - 42 - EDGE * 2 - 84);
       let nextX = currentX;
@@ -32,6 +34,7 @@ export function RoamingRocket() {
       }
 
       const rotation = Math.atan2(nextY - currentY, nextX - currentX) * (180 / Math.PI) + 45;
+      rocket.style.setProperty("--rocket-travel", travelTime);
       rocket.style.left = `${nextX}px`;
       rocket.style.top = `${nextY}px`;
       rocket.style.transform = `rotate(${rotation}deg)`;
@@ -46,15 +49,15 @@ export function RoamingRocket() {
         const now = performance.now();
         if (now - lastMove < MOVE_COOLDOWN_MS) return;
         lastMove = now;
-        move();
+        move(SCROLL_TRAVEL);
       });
     };
 
-    move();
+    move(SCROLL_TRAVEL);
     idleTimer = window.setInterval(() => {
       if (document.visibilityState === "visible") {
         lastMove = performance.now();
-        move();
+        move(IDLE_TRAVEL);
       }
     }, IDLE_MOVE_MS);
     window.addEventListener("scroll", onScroll, { passive: true });
