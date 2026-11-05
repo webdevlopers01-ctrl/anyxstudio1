@@ -469,3 +469,7 @@ footer{background:var(--anyx-blue)!important;color:#fff!important;border:0!impor
   .anyx-showcase-row.row-1 .anyx-showcase-track{animation:anyx-mobile-gallery-right 52s linear infinite!important}
   .anyx-showcase-row.row-2 .anyx-showcase-track{animation:anyx-mobile-gallery-left 49s linear infinite!important}
 }
+
+/* Global, pointer-free accent that travels with the visitor through every route. */
+.anyx-roaming-rocket{position:fixed;z-index:60;left:-64px;top:-64px;display:grid;place-items:center;width:42px;height:42px;pointer-events:none;font-size:28px;line-height:1;filter:drop-shadow(0 5px 8px rgba(1,75,170,.24));transition:left 1.75s cubic-bezier(.2,.8,.2,1),top 1.75s cubic-bezier(.2,.8,.2,1),transform 1.75s cubic-bezier(.2,.8,.2,1);will-change:left,top,transform}
+@media(max-width:720px){.anyx-roaming-rocket{z-index:55;width:36px;height:36px;font-size:24px;filter:drop-shadow(0 4px 7px rgba(1,75,170,.21))}}
