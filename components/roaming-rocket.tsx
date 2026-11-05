@@ -4,6 +4,7 @@ import { useEffect, useRef } from "react";
 
 const EDGE = 14;
 const MOVE_COOLDOWN_MS = 520;
+const IDLE_MOVE_MS = 6200;
 
 export function RoamingRocket() {
   const rocketRef = useRef<HTMLSpanElement>(null);
@@ -16,6 +17,7 @@ export function RoamingRocket() {
     let currentY = Math.max(EDGE, window.innerHeight * 0.2);
     let lastMove = 0;
     let frame = 0;
+    let idleTimer: ReturnType<typeof window.setInterval> | undefined;
 
     const move = () => {
       const width = Math.max(42, window.innerWidth - 42 - EDGE * 2);
@@ -49,10 +51,17 @@ export function RoamingRocket() {
     };
 
     move();
+    idleTimer = window.setInterval(() => {
+      if (document.visibilityState === "visible") {
+        lastMove = performance.now();
+        move();
+      }
+    }, IDLE_MOVE_MS);
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => {
       window.removeEventListener("scroll", onScroll);
       if (frame) window.cancelAnimationFrame(frame);
+      if (idleTimer) window.clearInterval(idleTimer);
     };
   }, []);
 
